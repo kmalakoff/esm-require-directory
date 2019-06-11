@@ -1,0 +1,45 @@
+{
+  "name": "esm-require-directory",
+  "version": "1.0.0",
+  "description": "Require a directory of modules in a similar way to esm-import-directory",
+  "main": "index.mj",
+  "scripts": {
+    "test": "mocha test/spec/**/*.test.js",
+    "lint": "eslint . --ext js,mjs",
+    "format": "prettier --write '**/*.{js,mjs}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmalakoff/esm-require-directory.git"
+  },
+  "keywords": [
+    "@std/esm",
+    "require",
+    "directory",
+    ".mjs"
+  ],
+  "author": "Kevin Malakoff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kmalakoff/esm-require-directory/issues"
+  },
+  "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
+  "dependencies": {
+    "pify": "^4.0.1",
+    "walk-filtered": "^1.14.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "lodash.size": "^4.2.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.18.2"
+  }
+}
