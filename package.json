@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "main": "index.mj",
   "scripts": {
@@ -12,12 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/kmalakoff/esm-require-directory.git"
   },
-  "keywords": [
-    "@std/esm",
-    "require",
-    "directory",
-    ".mjs"
-  ],
+  "keywords": ["@std/esm", "require", "directory", ".mjs"],
   "author": "Kevin Malakoff",
   "license": "MIT",
   "bugs": {
