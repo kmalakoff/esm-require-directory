@@ -12,12 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/kmalakoff/esm-require-directory.git"
   },
-  "keywords": [
-    "@std/esm",
-    "require",
-    "directory",
-    ".mjs"
-  ],
+  "keywords": ["@std/esm", "require", "directory", ".mjs"],
   "author": "Kevin Malakoff",
   "license": "MIT",
   "bugs": {
