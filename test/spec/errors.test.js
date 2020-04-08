@@ -7,7 +7,7 @@ const { assert } = chai;
 
 describe('errors', () => {
   it('fail to import an errored module (mjs)', async () => {
-    const DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'errors', 'cjs');
+    const DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'errors');
     let err;
 
     try {
@@ -16,11 +16,12 @@ describe('errors', () => {
       err = _err;
     }
 
-    assert.ok(!!err);
+    // skips .mjs
+    assert.ok(!err);
   });
 
   it('fail to import an errored module (cjs)', async () => {
-    const DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'errors', 'cjs');
+    const DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'errors');
     let err;
 
     try {
