@@ -13,9 +13,9 @@
     "url": "git+https://github.com/kmalakoff/esm-require-directory.git"
   },
   "keywords": [
-    "@std/esm",
     "require",
     "directory",
+    ".js",
     ".mjs"
   ],
   "author": "Kevin Malakoff",
@@ -26,8 +26,7 @@
   "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
   "dependencies": {
     "fs-iterator": "^1.3.0",
-    "pify": "^5.0.0",
-    "walk": "^2.3.14",
+    "queue-cb": "^1.1.0",
     "walk-filtered": "^2.1.0"
   },
   "devDependencies": {
