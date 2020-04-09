@@ -4,7 +4,7 @@
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "main": "index.mj",
   "scripts": {
-    "test": "mocha test/spec/**/*.test.js",
+    "test": "mocha test/spec/require/**/*.test.js",
     "lint": "eslint . --ext js,mjs",
     "format": "prettier --write '**/*.{js,mjs}'"
   },

@@ -1,10 +1,10 @@
 var path = require('path');
 var chai = require('chai');
 
-var requireDirectory = require('../..');
+var requireDirectory = require('../../..');
 
 var assert = chai.assert;
-var DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'directory');
+var DATA_DIRECTORY = path.join(__dirname, '..', '..', 'data', 'directory');
 
 describe('default', function () {
   it('default: true, recursive: false', function (done) {
