@@ -1,6 +1,6 @@
-var walk = require('./lib/walk.cjs');
+import walk from './lib/walk.cjs';
 
-module.exports = function requireDirectory(directory, options, callback) {
+export default function requireDirectory(directory, options, callback) {
   /* eslint-disable */
   if (arguments.length === 2 && typeof options === 'function') {
     callback = options;
@@ -27,4 +27,4 @@ module.exports = function requireDirectory(directory, options, callback) {
       });
     });
   }
-};
+}
