@@ -10,12 +10,12 @@ import requireDirectory from 'esm-require-directory';
 
 ''));
 
-(async () => {
+(async function() {
   // import as array, eg. [{ hello: 'world' }]
   const typeDefs = await requireDirectory(path.join(__dirname, 'typeDefs'));
 
   // import with paths, eg. { 'filename.mjs': { hello: 'world' } }
-  const typeDefPaths = await importDirectory(path.join(__dirname, 'typeDefs'), {
+  const typeDefPaths = await requireDirectory(path.join(__dirname, 'typeDefs'), {
     paths: true
   });
 })();
