@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "test-main": "mocha . spec/**/*.test.js",
+    "test-main": "mocha . mocha test/spec/require/**/*.test.js",
     "test-0.8": "nave use 0.8 npm run test-main",
     "test-0.10": "nave use 0.10 npm run test-main",
     "test-0.12": "nave use 0.12 npm run test-main",
