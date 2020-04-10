@@ -40,38 +40,6 @@ describe('extensions', function () {
     });
   });
 
-  it("extensions: ['.mjs', '.js'], recursive: false, paths: true", function (done) {
-    requireDirectory(DATA_DIRECTORY, { extensions: ['.mjs', '.js'], recursive: false, paths: true }, function (err, results) {
-      assert.ok(!err);
-      assert.equal(size(results), 2);
-      done();
-    });
-  });
-
-  it("extensions: ['.mjs', '.js'], recursive: true, paths: true", function (done) {
-    requireDirectory(DATA_DIRECTORY, { extensions: ['.mjs', '.js'], recursive: true, paths: true }, function (err, results) {
-      assert.ok(!err);
-      assert.equal(size(results), 10);
-      done();
-    });
-  });
-
-  it("extensions: ['.mjs', '.js'], recursive: false, paths: true, default: false", function (done) {
-    requireDirectory(DATA_DIRECTORY, { extensions: ['.mjs', '.js'], recursive: false, paths: true, default: false }, function (err, results) {
-      assert.ok(!err);
-      assert.equal(size(results), 2);
-      done();
-    });
-  });
-
-  it("extensions: ['.mjs', '.js'], recursive: false, paths: true, default: true", function (done) {
-    requireDirectory(DATA_DIRECTORY, { extensions: ['.mjs', '.js'], recursive: true, paths: true, default: false }, function (err, results) {
-      assert.ok(!err);
-      assert.equal(size(results), 10);
-      done();
-    });
-  });
-
   it("extensions: ['.js'], recursive: false, paths: true", function (done) {
     requireDirectory(DATA_DIRECTORY, { extensions: ['.js'], recursive: false, paths: true }, function (err, results) {
       assert.ok(!err);
