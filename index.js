@@ -1,4 +1,7 @@
 var walk = require('./lib/walk.cjs');
+var requireFile = require('./lib/requireFile');
+
+var LOADERS = { '.js': requireFile, '.cjs': requireFile };
 
 module.exports = function requireDirectory(directory, options, callback) {
   /* eslint-disable */
@@ -16,8 +19,13 @@ module.exports = function requireDirectory(directory, options, callback) {
       filename: options.filename,
       default: options.default === undefined ? true : options.default,
       extensions: options.extensions || ['.js'],
+      loaders: {},
     };
     if (options.paths && options.filename === undefined) options.filename = true;
+    options.extensions.map(function (extension) {
+      if (!LOADERS[extension]) throw Error('Unexpected extension: ' + extension);
+      options.loaders[extension] = LOADERS[extension];
+    });
 
     walk(directory, options, callback);
   } else {

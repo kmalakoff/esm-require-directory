@@ -10,7 +10,9 @@
     "default": "index.js"
   },
   "scripts": {
-    "test": "mocha test/spec/**/*.test.js && mocha test/spec/**/*.test.mjs --experimental-modules",
+    "test": "npm run test-cjs && npm run test-esm",
+    "test-cjs": "mocha test/spec/**/*.test.js",
+    "test-esm": "mocha test/spec/**/*.test.mjs --experimental-modules",
     "lint": "eslint . --ext js,mjs",
     "format": "prettier --write '**/*.{js,mjs}'"
   },
