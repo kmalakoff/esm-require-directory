@@ -16,7 +16,7 @@ describe('filename', () => {
         recursive: true,
       });
       assert.ok(!Array.isArray(results));
-      assert.equal(size(results), 5);
+      assert.equal(size(results), 15);
       Object.entries(results).forEach(([name]) => {
         assert.equal(path.extname(name), '');
       });
@@ -29,7 +29,7 @@ describe('filename', () => {
         recursive: true,
       });
       assert.ok(!Array.isArray(results));
-      assert.equal(size(results), 5);
+      assert.equal(size(results), 15);
       Object.entries(results).forEach(([name]) => {
         assert.equal(path.extname(name), '');
       });
@@ -42,9 +42,9 @@ describe('filename', () => {
         recursive: true,
       });
       assert.ok(!Array.isArray(results));
-      assert.equal(size(results), 5);
+      assert.equal(size(results), 15);
       Object.entries(results).forEach(([name]) => {
-        assert.equal(path.extname(name), '.mjs');
+        assert.ok(~['.mjs', '.js'].indexOf(path.extname(name)));
       });
     });
   });
@@ -56,7 +56,7 @@ describe('filename', () => {
         recursive: true,
       });
       assert.ok(Array.isArray(results));
-      assert.equal(size(results), 5);
+      assert.equal(size(results), 15);
     });
 
     it('filename: true, recursive: false', async () => {
@@ -66,7 +66,7 @@ describe('filename', () => {
         recursive: false,
       });
       assert.ok(!Array.isArray(results));
-      assert.equal(size(results), 1);
+      assert.equal(size(results), 3);
       Object.entries(results).forEach(([name, value]) => {
         assert.ok(!Array.isArray(value));
         assert.equal(path.extname(name), '');
@@ -80,7 +80,7 @@ describe('filename', () => {
         recursive: true,
       });
       assert.ok(!Array.isArray(results));
-      assert.equal(size(results), 1);
+      assert.equal(size(results), 3);
       Object.entries(results).forEach(([name, value]) => {
         assert.equal(value.length, 5);
         assert.equal(path.extname(name), '');
@@ -94,7 +94,7 @@ describe('filename', () => {
         recursive: true,
       });
       assert.ok(Array.isArray(results));
-      assert.equal(size(results), 5);
+      assert.equal(size(results), 15);
     });
   });
 });

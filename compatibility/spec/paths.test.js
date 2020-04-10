@@ -8,11 +8,11 @@ var assert = chai.assert;
 var DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'directory');
 
 describe('paths', function () {
-  it("extensions: ['.mjs', '.js'], recursive: false, paths: true", function (done) {
+  it("extensions: ['.js'], recursive: false, paths: true", function (done) {
     requireDirectory(
       DATA_DIRECTORY,
       {
-        extensions: ['.mjs', '.js'],
+        extensions: ['.js'],
         recursive: false,
         paths: true,
       },
@@ -24,11 +24,11 @@ describe('paths', function () {
     );
   });
 
-  it("extensions: ['.mjs', '.js'], recursive: true, paths: true", function (done) {
+  it("extensions: ['.js'], recursive: true, paths: true", function (done) {
     requireDirectory(
       DATA_DIRECTORY,
       {
-        extensions: ['.mjs', '.js'],
+        extensions: ['.js'],
         recursive: true,
         paths: true,
       },
@@ -40,11 +40,11 @@ describe('paths', function () {
     );
   });
 
-  it("extensions: ['.mjs', '.js'], recursive: false, default: false, paths: true", function (done) {
+  it("extensions: ['.js'], recursive: false, default: false, paths: true", function (done) {
     requireDirectory(
       DATA_DIRECTORY,
       {
-        extensions: ['.mjs', '.js'],
+        extensions: ['.js'],
         recursive: false,
         default: false,
         paths: true,
@@ -57,11 +57,11 @@ describe('paths', function () {
     );
   });
 
-  it("extensions: ['.mjs', '.js'], recursive: true, default: false, paths: true", function (done) {
+  it("extensions: ['.js'], recursive: true, default: false, paths: true", function (done) {
     requireDirectory(
       DATA_DIRECTORY,
       {
-        extensions: ['.mjs', '.js'],
+        extensions: ['.js'],
         recursive: true,
         default: false,
         paths: true,

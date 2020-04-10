@@ -9,7 +9,7 @@ describe('errors', function () {
   it('fail to import an errored module (cjs)', function (done) {
     var DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'errors');
 
-    // skips .js
+    // errors on problematic cjs
     requireDirectory(DATA_DIRECTORY, { extensions: ['.js'], recursive: false }, function (err, results) {
       assert.ok(!!err);
       done();
@@ -19,10 +19,15 @@ describe('errors', function () {
   it('fail to import an errored module (mjs)', function (done) {
     var DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'errors');
 
-    // skips .mjs
-    requireDirectory(DATA_DIRECTORY, { extensions: ['.mjs'], recursive: false }, function (err, results) {
-      assert.ok(!err);
+    // skips on problematic esm
+    try {
+      requireDirectory(DATA_DIRECTORY, { extensions: ['.mjs'], recursive: false }, function (err, results) {
+        assert.ok(!err);
+        done();
+      });
+    } catch (err) {
+      assert.ok(err);
       done();
-    });
+    }
   });
 });

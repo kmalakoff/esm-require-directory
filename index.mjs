@@ -1,4 +1,7 @@
 import walk from './lib/walk.cjs';
+import importFile from './lib/importFile.mjs';
+
+var LOADERS = { '.js': importFile, '.cjs': importFile, '.mjs': importFile };
 
 export default function requireDirectory(directory, options, callback) {
   /* eslint-disable */
@@ -15,9 +18,15 @@ export default function requireDirectory(directory, options, callback) {
       paths: options.paths,
       filename: options.filename,
       default: options.default === undefined ? true : options.default,
-      extensions: options.extensions || ['.js'],
+      extensions: options.extensions || ['.mjs', '.js'],
+      loaders: {},
     };
     if (options.paths && options.filename === undefined) options.filename = true;
+    if (options.paths && options.filename === undefined) options.filename = true;
+    options.extensions.map(function (extension) {
+      if (!LOADERS[extension]) throw Error('Unexpected extension: ' + extension);
+      options.loaders[extension] = LOADERS[extension];
+    });
 
     walk(directory, options, callback);
   } else {
