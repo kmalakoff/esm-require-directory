@@ -35,7 +35,6 @@
   "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
   "dependencies": {
     "fs-iterator": "^1.3.0",
-    "queue-cb": "^1.1.0",
     "walk-filtered": "^2.1.0"
   },
   "devDependencies": {
