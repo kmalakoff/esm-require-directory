@@ -1,1 +1,1 @@
-export var named = function () {};
+export var named = function() {};
