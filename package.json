@@ -1,11 +1,12 @@
 {
   "name": "esm-require-directory",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "type": "commonjs",
   "main": "./index.js",
   "exports": {
-    "import": "./index.mjs"
+    "import": "./index.mjs",
+    "require": "./index.js"
   },
   "scripts": {
     "test": "npm run test-cjs && npm run test-esm",
