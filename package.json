@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
   "dependencies": {
-    "fs-iterator": "^2.0.0"
+    "fs-iterator": "^2.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
