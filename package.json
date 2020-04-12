@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "type": "commonjs",
   "main": "./index.js",
