@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "type": "commonjs",
   "main": "./index.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "npm run test-cjs && npm run test-esm",
     "test-cjs": "mocha test/spec/**/*.test.js",
-    "test-esm": "mocha test/spec/**/*.test.mjs",
+    "test-esm": "nave use 13 mocha test/spec/**/*.test.mjs",
     "lint": "eslint . --ext js,mjs",
     "format": "prettier --write '**/*.{js,mjs}'"
   },
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
   "dependencies": {
-    "fs-iterator": "^2.1.0"
+    "fs-iterator": "^2.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -49,6 +49,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "lodash.size": "^4.2.0",
     "mocha": "^7.1.1",
+    "nave": "^3.2.1",
     "prettier": "^2.0.4"
   }
 }
