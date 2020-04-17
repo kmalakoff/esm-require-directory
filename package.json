@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "type": "commonjs",
   "main": "./index.js",
@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
   "dependencies": {
-    "fs-iterator": "^2.4.0"
+    "fs-iterator": "^2.5.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
