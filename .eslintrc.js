@@ -18,5 +18,6 @@ module.exports = {
   rules: {
     'import/extensions': ['error', 'always', { js: 'never', mjs: 'never' }],
     'no-throw-literal': 'off',
+    'import/extensions': 'off',
   },
 };
