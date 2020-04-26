@@ -12,7 +12,7 @@
     "test": "run-s test-cjs test-esm",
     "test-cjs": "mocha test/spec/**/*.test.js",
     "test-esm": "nave use 14 mocha test/spec/**/*.test.mjs",
-    "compat-cjs": "nvs 14 12 10 8 6 4 0.12 0.10 0.8 -- mocha-compat test/spec/**/*.test.js",
+    "compat-cjs": "nvs 14,12,10,8,6,4,0.12,0.10,0.8 mocha-compat test/spec/**/*.test.js",
     "compat-esm": "nvs 14 -- mocha test/spec/**/*.test.mjs",
     "compat": "run-s compat-cjs compat-esm",
     "lint": "eslint . --ext js,mjs",
