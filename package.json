@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "2.6.4",
+  "version": "2.6.5",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "type": "commonjs",
   "main": "./index.js",
@@ -11,9 +11,9 @@
   "scripts": {
     "test": "run-s test-cjs test-esm",
     "test-cjs": "mocha test/spec/**/*.test.js",
-    "test-esm": "nave use 14 mocha test/spec/**/*.test.mjs",
+    "test-esm": "nvs 14 mocha test/spec/**/*.test.mjs",
     "compat-cjs": "nvs 14,12,10,8,6,4,0.12,0.10,0.8 mocha-compat test/spec/**/*.test.js",
-    "compat-esm": "nvs 14 -- mocha test/spec/**/*.test.mjs",
+    "compat-esm": "nvs 14 mocha test/spec/**/*.test.mjs",
     "compat": "run-s compat-cjs compat-esm",
     "lint": "eslint . --ext js,mjs",
     "format": "prettier --write '**/*.{js,mjs}'"
@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
   "dependencies": {
-    "fs-iterator": "^2.6.0"
+    "fs-iterator": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -55,6 +55,7 @@
     "mocha-compat": "^3.5.5",
     "nave": "^3.2.1",
     "npm-run-all": "^4.1.5",
+    "nvs": "^0.1.8",
     "prettier": "^2.0.5"
   }
 }
