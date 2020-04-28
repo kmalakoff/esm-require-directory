@@ -1,13 +1,16 @@
 import path from 'path';
+import url from 'url';
 import chai from 'chai';
 
 import importDirectory from '../../index.mjs';
 
 const assert = chai.assert;
-const dirname = path.dirname(import.meta.url.replace('file://', ''));
-const DATA_DIRECTORY = path.join(dirname, '..', 'data', 'directory');
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'directory');
 
-describe('callback', function () {
+console.log(DATA_DIRECTORY);
+
+describe.only('callback', function () {
   it('default: true, recursive: false', function (done) {
     importDirectory(DATA_DIRECTORY, { default: true, recursive: false }, function (err, results) {
       assert.ok(!err);
