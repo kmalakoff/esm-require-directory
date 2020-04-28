@@ -8,9 +8,7 @@ const assert = chai.assert;
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const DATA_DIRECTORY = path.join(__dirname, '..', 'data', 'directory');
 
-console.log(DATA_DIRECTORY);
-
-describe.only('callback', function () {
+describe('callback', function () {
   it('default: true, recursive: false', function (done) {
     importDirectory(DATA_DIRECTORY, { default: true, recursive: false }, function (err, results) {
       assert.ok(!err);
