@@ -38,7 +38,8 @@
     "test-esm": "nvs --versions 14 mocha test/spec/**/*.test.mjs"
   },
   "dependencies": {
-    "fs-iterator": "^3.0.1"
+    "fs-iterator": "^3.0.1",
+    "semver": "^6.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -58,6 +59,6 @@
     "prettier": "^2.0.5"
   },
   "engines": {
-    "node": ">=0.8.0"
+    "node": ">=4"
   }
 }
