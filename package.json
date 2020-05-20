@@ -38,7 +38,7 @@
     "test-esm": "nvs --versions 14 mocha test/spec/**/*.test.mjs"
   },
   "dependencies": {
-    "fs-iterator": "^3.0.1",
+    "fs-iterator": "^3.0.2",
     "semver": "^6.3.0"
   },
   "devDependencies": {
