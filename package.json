@@ -32,7 +32,7 @@
     "lint": "eslint . --ext js,mjs",
     "test": "run-s test-cjs test-esm",
     "test-cjs": "mocha-compat test/spec/**/*.test.js",
-    "test-esm": "nvs --versions 14 mocha test/spec/**/*.test.mjs"
+    "test-esm": "nvs 14 mocha test/spec/**/*.test.mjs"
   },
   "dependencies": {
     "fs-iterator": "^3.0.3",
