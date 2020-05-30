@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "2.6.6",
+  "version": "2.6.7",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "keywords": [
     "esm",
@@ -35,8 +35,7 @@
     "test-esm": "nvs 14 mocha test/spec/**/*.test.mjs"
   },
   "dependencies": {
-    "fs-iterator": "^3.0.3",
-    "semver": "^5.7.1"
+    "fs-iterator": "^3.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
