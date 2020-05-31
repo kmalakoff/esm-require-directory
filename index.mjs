@@ -1,4 +1,4 @@
-import walk from './lib/walk.cjs';
+import walk from './lib/walk';
 import importFile from './lib/importFile.mjs';
 
 var EXTENSIONS = ['.mjs'];
