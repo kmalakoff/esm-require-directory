@@ -36,7 +36,7 @@
     "test-esm": "nvu 14 mocha test/spec/**/*.test.mjs"
   },
   "dependencies": {
-    "fs-iterator": "^4.0.1"
+    "fs-iterator": "^4.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
