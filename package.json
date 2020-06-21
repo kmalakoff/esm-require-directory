@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "2.6.10",
+  "version": "2.6.11",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "keywords": [
     "esm",
