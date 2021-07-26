@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import walk from './lib/walk.js';
 import importFile from './lib/importFile.mjs';
 
