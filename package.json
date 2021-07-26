@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "2.6.11",
+  "version": "2.7.0",
   "description": "Require a directory of modules in a similar way to esm-import-directory",
   "keywords": [
     "esm",
@@ -40,8 +40,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "chai": "^4.2.0",
-    "depcheck": "^1.0.0",
+    "chai": "^4.3.4",
+    "depcheck": "^1.4.2",
     "dis-dat": "^0.1.3",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
@@ -51,12 +51,12 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "lodash.size": "^4.2.0",
-    "mocha": "^8.0.1",
+    "mocha": "^9.0.3",
     "mocha-compat": "^3.5.5",
-    "node-version-use": "^0.1.21",
-    "prettier": "^2.0.5"
+    "node-version-use": "^0.2.0",
+    "prettier": "^2.3.2"
   },
   "engines": {
-    "node": ">=0.8"
+    "node": ">=0.12"
   }
 }
