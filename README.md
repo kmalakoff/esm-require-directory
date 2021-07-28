@@ -6,9 +6,7 @@ Import a directory of modules using @std/esm
 
 ```js
 const path = require('path');
-import requireDirectory from 'esm-require-directory';
-
-''));
+const requireDirectory = require('esm-require-directory');
 
 (async function() {
   // import as array, eg. [{ hello: 'world' }]
