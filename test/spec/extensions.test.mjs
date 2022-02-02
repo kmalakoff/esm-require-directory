@@ -12,22 +12,22 @@ const DATA_DIR = path.join(__dirname, '..', 'data', 'directory');
 describe('extensions', () => {
   it('extensions: (default), recursive: false, paths: true', async () => {
     const results = await importDirectory(DATA_DIR, { recursive: false, paths: true });
-    assert.equal(size(results), 1);
+    assert.equal(size(results), 3);
   });
 
   it('extensions: (default), recursive: true, paths: true', async () => {
     const results = await importDirectory(DATA_DIR, { recursive: true, paths: true });
-    assert.equal(size(results), 5);
+    assert.equal(size(results), 15);
   });
 
   it('extensions: (default), recursive: false, paths: true, default: false', async () => {
     const results = await importDirectory(DATA_DIR, { recursive: false, paths: true, default: false });
-    assert.equal(size(results), 2);
+    assert.equal(size(results), 4);
   });
 
   it('extensions: (default), recursive: false, paths: true, default: true', async () => {
     const results = await importDirectory(DATA_DIR, { recursive: true, paths: true, default: false });
-    assert.equal(size(results), 10);
+    assert.equal(size(results), 20);
   });
 
   it("extensions: ['.mjs', '.js'], recursive: false, paths: true", async () => {

@@ -2,7 +2,7 @@
 import walk from './lib/walk.js';
 import importFile from './lib/importFile.mjs';
 
-var EXTENSIONS = ['.mjs'];
+var EXTENSIONS = ['.mjs', '.js'];
 
 export default function importDirectory(directory, options, callback) {
   /* eslint-disable */

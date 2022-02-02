@@ -11,21 +11,21 @@ const DATA_DIR = path.join(__dirname, '..', 'data', 'directory');
 describe('default', () => {
   it('default: true, recursive: false', async () => {
     const results = await importDirectory(DATA_DIR, { default: true, recursive: false });
-    assert.equal(results.length, 1);
+    assert.equal(results.length, 3);
   });
 
   it('default: true, recursive: true', async () => {
     const results = await importDirectory(DATA_DIR, { default: true, recursive: true });
-    assert.equal(results.length, 5);
+    assert.equal(results.length, 15);
   });
 
   it('default: false, recursive: false', async () => {
     const results = await importDirectory(DATA_DIR, { default: false, recursive: false });
-    assert.equal(results.length, 2);
+    assert.equal(results.length, 4);
   });
 
   it('default: false, recursive: true', async () => {
     const results = await importDirectory(DATA_DIR, { default: false, recursive: true });
-    assert.equal(results.length, 10);
+    assert.equal(results.length, 20);
   });
 });
