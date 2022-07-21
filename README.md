@@ -8,13 +8,13 @@ Import a directory of modules using @std/esm
 const path = require('path');
 const requireDirectory = require('esm-require-directory');
 
-(async function() {
+(async function () {
   // import as array, eg. [{ hello: 'world' }]
   const typeDefs = await requireDirectory(path.join(__dirname, 'typeDefs'));
 
   // import with paths, eg. { 'filename.mjs': { hello: 'world' } }
   const typeDefPaths = await requireDirectory(path.join(__dirname, 'typeDefs'), {
-    paths: true
+    paths: true,
   });
 })();
 ```
