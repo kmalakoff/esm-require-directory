@@ -1,16 +1,16 @@
-var path = require('path');
-var fileName = require('./fileName');
-var filePath = require('./filePath');
+import path from 'path';
+import fileName from './fileName.mjs';
+import filePath from './filePath.mjs';
 
 function setResult(results, key, module) {
   if (results[key] !== undefined) {
     var value = Array.isArray(results[key]) ? results[key] : [results[key]];
-    results[key] = value.concat(module); // eslint-disable-line no-param-reassign
+    results[key] = value.concat(module);
   } else results[key] = module;
 }
 
-module.exports = function addResult(results, entry, options, module) {
-  // es6 module so extract default by default unless asked not to
+export default function addResult(results, entry, options, module) {
+  // esm module so extract default by default unless asked not to
   if (path.extname(entry.basename) === '.mjs') {
     if (options.default === undefined || options.default) {
       // check default
@@ -21,5 +21,5 @@ module.exports = function addResult(results, entry, options, module) {
 
   if (options.paths) setResult(results, options.filename ? filePath(entry.path) : entry.path, module);
   else if (options.filename) setResult(results, fileName(entry.path), module);
-  else results.push(module); // eslint-disable-line no-param-reassign
-};
+  else results.push(module);
+}
