@@ -1,10 +1,10 @@
-var path = require('path');
-var Iterator = require('fs-iterator');
+import path from 'path';
+import Iterator from 'fs-iterator';
 
-var requireIndex = require('./requireIndex');
-var addResult = require('./addResult');
+import addResult from './addResult.mjs';
+import requireIndex from './requireIndex.mjs';
 
-module.exports = function walk(directory, options, callback) {
+export default function walk(directory, options, callback) {
   var results = options.paths || options.filename ? {} : [];
 
   var iterator = new Iterator(directory, {
@@ -42,4 +42,4 @@ module.exports = function walk(directory, options, callback) {
       err ? callback(err) : callback(null, results);
     }
   );
-};
+}

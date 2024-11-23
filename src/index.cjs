@@ -1,12 +1,10 @@
-// eslint-disable-next-line import/extensions
-import walk from './walk.js';
-import importFile from './importFile.mjs';
+var walk = require('./walk.mjs');
+var requireFile = require('./requireFile');
 
-var EXTENSIONS = ['.mjs'];
+var EXTENSIONS = ['.js', '.cjs'];
 
-export default function importDirectory(directory, options, callback) {
-  /* eslint-disable */
-  if (arguments.length === 2 && typeof options === 'function') {
+module.exports = function requireDirectory(directory, options, callback) {
+  if (typeof options === 'function') {
     callback = options;
     options = {};
   }
@@ -20,7 +18,7 @@ export default function importDirectory(directory, options, callback) {
       filename: options.filename,
       default: options.default === undefined ? true : options.default,
       extensions: options.extensions || EXTENSIONS,
-      loader: options.loader || importFile,
+      loader: options.loader || requireFile,
     };
     options.extensions.map(function (extension) {
       if (!~EXTENSIONS.indexOf(extension)) throw new Error('Extension not supported: ' + extension);
@@ -30,9 +28,9 @@ export default function importDirectory(directory, options, callback) {
     walk(directory, options, callback);
   } else {
     return new Promise(function (resolve, reject) {
-      importDirectory(directory, options, function (err, results) {
+      requireDirectory(directory, options, function (err, results) {
         err ? reject(err) : resolve(results);
       });
     });
   }
-}
+};
