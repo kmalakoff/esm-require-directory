@@ -1,5 +1,5 @@
-var path = require('path');
-var fs = require('fs');
+import fs from 'fs';
+import path from 'path';
 
 function loadIndexIfExists(fullPath, index, options, callback) {
   if (index >= options.extensions.length) return callback();
@@ -16,6 +16,6 @@ function loadIndexIfExists(fullPath, index, options, callback) {
   });
 }
 
-module.exports = function requireIndex(fullPath, options, callback) {
+export default function requireIndex(fullPath, options, callback) {
   loadIndexIfExists(fullPath, 0, options, callback);
-};
+}
