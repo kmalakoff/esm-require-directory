@@ -1,14 +1,13 @@
 {
   "name": "esm-require-directory",
-  "version": "2.7.3",
-  "description": "Require a directory of modules in a similar way to esm-import-directory",
+  "version": "2.8.0",
+  "description": "require a directory of modules using es6 modules require",
   "keywords": [
     "esm",
+    "es6",
+    "import",
     "require",
     "directory",
-    "import",
-    "esm-import-directory",
-    ".js",
     ".mjs"
   ],
   "homepage": "https://github.com/kmalakoff/esm-require-directory#readme",
@@ -23,40 +22,47 @@
   "author": "Kevin Malakoff",
   "type": "commonjs",
   "exports": {
-    "import": "./lib/index.mjs",
-    "require": "./lib/index.js"
+    ".": {
+      "import": "./dist/esm/index.esm.mjs",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./*": "./*"
   },
-  "main": "./lib/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.esm.mjs",
+  "types": "dist/types/index.d.ts",
   "files": [
-    "lib"
+    "dist"
   ],
   "scripts": {
-    "format": "prettier --write .",
-    "lint": "eslint . --ext js,mjs",
-    "prepublishOnly": "npm run lint && depcheck",
-    "test": "npm run test-cjs && npm run test-esm",
-    "test-cjs": "mocha-compat test/spec/**/*.test.js",
-    "test-esm": "nvu 14 mocha test/spec/**/*.test.mjs",
-    "test:engines": "nvu engines npm test"
+    "build": "tsds build",
+    "deploy": "tsds deploy",
+    "format": "biome check --write --unsafe src/ test/",
+    "test": "tsds link && mocha-compat test/spec/**/*.test.js --no-timeouts && nvu latest mocha test/spec/**/*.test.mjs --no-timeouts && tsds unlink",
+    "test:engines": "tsds link && nvu engines mocha-compat test/spec/**/*.test.js --no-timeouts && nvu \">=12\" mocha test/spec/**/*.test.mjs --no-timeouts && tsds unlink",
+    "version": "tsds version"
   },
   "dependencies": {
-    "fs-iterator": "^4.1.1"
+    "fs-iterator": "^5.1.0"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^5.30.7",
-    "depcheck": "^1.4.3",
-    "eslint": "^8.20.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.4",
-    "eslint-plugin-promise": "^6.0.0",
+    "@biomejs/biome": "^1.9.4",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.9.2",
+    "depcheck": "^1.4.7",
     "lodash.size": "^4.2.0",
-    "mocha": "^10.0.0",
-    "mocha-compat": "^3.5.5",
-    "prettier": "^2.7.1"
+    "mocha": "^10.8.2",
+    "ts-dev-stack": "^0.15.8"
   },
   "engines": {
-    "node": ">=0.12"
+    "node": ">=0.8"
+  },
+  "tsds": {
+    "source": "src/index.esm.mjs",
+    "targets": [
+      "cjs",
+      "esm"
+    ]
   }
 }
