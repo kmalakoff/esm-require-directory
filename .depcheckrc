@@ -1,1 +1,1 @@
-ignores: ["depcheck"]
+ignores: ["esm-require-directory", "depcheck", "ts-dev-stack", "@types/*"]

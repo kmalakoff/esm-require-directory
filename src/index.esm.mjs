@@ -1,11 +1,10 @@
-var walk = require('./walk');
-var requireFile = require('./requireFile');
+import importFile from './importFile.mjs';
+import walk from './walk.mjs';
 
-var EXTENSIONS = ['.js', '.cjs'];
+var EXTENSIONS = ['.mjs'];
 
-module.exports = function requireDirectory(directory, options, callback) {
-  /* eslint-disable */
-  if (arguments.length === 2 && typeof options === 'function') {
+export default function importDirectory(directory, options, callback) {
+  if (typeof options === 'function') {
     callback = options;
     options = {};
   }
@@ -19,7 +18,7 @@ module.exports = function requireDirectory(directory, options, callback) {
       filename: options.filename,
       default: options.default === undefined ? true : options.default,
       extensions: options.extensions || EXTENSIONS,
-      loader: options.loader || requireFile,
+      loader: options.loader || importFile,
     };
     options.extensions.map(function (extension) {
       if (!~EXTENSIONS.indexOf(extension)) throw new Error('Extension not supported: ' + extension);
@@ -29,9 +28,9 @@ module.exports = function requireDirectory(directory, options, callback) {
     walk(directory, options, callback);
   } else {
     return new Promise(function (resolve, reject) {
-      requireDirectory(directory, options, function (err, results) {
+      importDirectory(directory, options, function (err, results) {
         err ? reject(err) : resolve(results);
       });
     });
   }
-};
+}
