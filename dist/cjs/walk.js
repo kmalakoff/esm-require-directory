@@ -23,7 +23,7 @@ function walk(directory, options, callback) {
         depth: options.recursive ? Infinity : 0,
         alwaysStat: true,
         filter: function filter(entry, callback) {
-            if (entry.path === "") return callback();
+            if (entry.path === '') return callback();
             // check for index file one level under the directory
             if (entry.stats.isDirectory()) {
                 if (options.recursive) return callback(); // will pick up index in traverse

@@ -16,15 +16,15 @@ function _interop_require_default(obj) {
     };
 }
 var EXTENSIONS = [
-    ".mjs"
+    '.mjs'
 ];
 function importDirectory(directory, options, callback) {
-    if (typeof options === "function") {
+    if (typeof options === 'function') {
         callback = options;
         options = {};
     }
     // choose between promise and callback API
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
         options = options || {};
         options = {
             recursive: options.recursive,
@@ -35,7 +35,7 @@ function importDirectory(directory, options, callback) {
             loader: options.loader || _importFile.default
         };
         options.extensions.map(function(extension) {
-            if (!~EXTENSIONS.indexOf(extension)) throw new Error("Extension not supported: " + extension);
+            if (!~EXTENSIONS.indexOf(extension)) throw new Error('Extension not supported: ' + extension);
         });
         if (options.paths && options.filename === undefined) options.filename = true;
         (0, _walk.default)(directory, options, callback);

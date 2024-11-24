@@ -17,7 +17,7 @@ function _interop_require_default(obj) {
 }
 function loadIndexIfExists(fullPath, index, options, callback) {
     if (index >= options.extensions.length) return callback();
-    var basename = "index" + options.extensions[index];
+    var basename = 'index' + options.extensions[index];
     var indexFullPath = _path.default.join(fullPath, basename);
     _fs.default.lstat(indexFullPath, function(err, indexStats) {
         // try next

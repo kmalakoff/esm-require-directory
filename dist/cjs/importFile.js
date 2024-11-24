@@ -50,7 +50,7 @@ function _interop_require_wildcard(obj, nodeInterop) {
     return newObj;
 }
 function importFile(fullPath, callback) {
-    Promise.resolve("file://" + fullPath).then(function(p) {
+    Promise.resolve('file://' + fullPath).then(function(p) {
         return /*#__PURE__*/ _interop_require_wildcard(require(p));
     }).then(function(module) {
         callback(null, module);
