@@ -1,17 +1,17 @@
 "use strict";
-var walk = require("./walk.js");
-var requireFile = require("./requireFile");
+var walk = require('./walk.js');
+var requireFile = require('./requireFile');
 var EXTENSIONS = [
-    ".js",
-    ".cjs"
+    '.js',
+    '.cjs'
 ];
 module.exports = function requireDirectory(directory, options, callback) {
-    if (typeof options === "function") {
+    if (typeof options === 'function') {
         callback = options;
         options = {};
     }
     // choose between promise and callback API
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
         options = options || {};
         options = {
             recursive: options.recursive,
@@ -22,7 +22,7 @@ module.exports = function requireDirectory(directory, options, callback) {
             loader: options.loader || requireFile
         };
         options.extensions.map(function(extension) {
-            if (!~EXTENSIONS.indexOf(extension)) throw new Error("Extension not supported: " + extension);
+            if (!~EXTENSIONS.indexOf(extension)) throw new Error('Extension not supported: ' + extension);
         });
         if (options.paths && options.filename === undefined) options.filename = true;
         walk(directory, options, callback);
@@ -34,4 +34,4 @@ module.exports = function requireDirectory(directory, options, callback) {
         });
     }
 };
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }

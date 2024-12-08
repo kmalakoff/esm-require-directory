@@ -17,7 +17,7 @@ function _interop_require_default(obj) {
 }
 function loadIndexIfExists(fullPath, index, options, callback) {
     if (index >= options.extensions.length) return callback();
-    var basename = "index" + options.extensions[index];
+    var basename = 'index' + options.extensions[index];
     var indexFullPath = _path.default.join(fullPath, basename);
     _fs.default.lstat(indexFullPath, function(err, indexStats) {
         // try next
@@ -31,4 +31,4 @@ function loadIndexIfExists(fullPath, index, options, callback) {
 function requireIndex(fullPath, options, callback) {
     loadIndexIfExists(fullPath, 0, options, callback);
 }
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }
