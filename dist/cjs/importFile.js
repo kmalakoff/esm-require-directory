@@ -50,10 +50,10 @@ function _interop_require_wildcard(obj, nodeInterop) {
     return newObj;
 }
 function importFile(fullPath, callback) {
-    Promise.resolve("file://" + fullPath).then(function(p) {
+    Promise.resolve('file://' + fullPath).then(function(p) {
         return /*#__PURE__*/ _interop_require_wildcard(require(p));
     }).then(function(module) {
         callback(null, module);
     }).catch(callback);
 }
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }

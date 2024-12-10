@@ -23,7 +23,7 @@ function walk(directory, options, callback) {
         depth: options.recursive ? Infinity : 0,
         alwaysStat: true,
         filter: function filter(entry, callback) {
-            if (entry.path === "") return callback();
+            if (entry.path === '') return callback();
             // check for index file one level under the directory
             if (entry.stats.isDirectory()) {
                 if (options.recursive) return callback(); // will pick up index in traverse
@@ -54,4 +54,4 @@ function walk(directory, options, callback) {
         err ? callback(err) : callback(null, results);
     });
 }
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }
