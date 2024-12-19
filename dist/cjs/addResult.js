@@ -26,7 +26,7 @@ function setResult(results, key, module) {
 }
 function addResult(results, entry, options, module) {
     // esm module so extract default by default unless asked not to
-    if (_path.default.extname(entry.basename) === ".mjs") {
+    if (_path.default.extname(entry.basename) === '.mjs') {
         if (options.default === undefined || options.default) {
             // check default
             if (module.default === undefined) return; // no default
@@ -37,4 +37,4 @@ function addResult(results, entry, options, module) {
     else if (options.filename) setResult(results, (0, _fileName.default)(entry.path), module);
     else results.push(module);
 }
-/* CJS INTEROP */ if (exports.__esModule && exports.default) { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) exports.default[key] = exports[key]; module.exports = exports.default; }
+/* CJS INTEROP */ if (exports.__esModule && exports.default) { try { Object.defineProperty(exports.default, '__esModule', { value: true }); for (var key in exports) { exports.default[key] = exports[key]; } } catch (_) {}; module.exports = exports.default; }
