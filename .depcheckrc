@@ -1,1 +1,1 @@
-ignores: ["esm-require-directory", "depcheck", "ts-dev-stack", "@types/*"]
+ignores: ["esm-require-directory", "depcheck", "ts-dev-stack", "@types/*", "@biomejs/*"]
