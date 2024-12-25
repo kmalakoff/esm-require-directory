@@ -1,3 +1,5 @@
+// biome-ignore lint/suspicious/noShadowRestrictedNames: <explanation>
+var Promise = require('pinkie-promise');
 var walk = require('./walk.mjs');
 var requireFile = require('./requireFile');
 
