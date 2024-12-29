@@ -1,10 +1,10 @@
 import path from 'path';
-import fileName from './fileName.mjs';
-import filePath from './filePath.mjs';
+import fileName from './fileName.js';
+import filePath from './filePath.js';
 
 function setResult(results, key, module) {
   if (results[key] !== undefined) {
-    var value = Array.isArray(results[key]) ? results[key] : [results[key]];
+    const value = Array.isArray(results[key]) ? results[key] : [results[key]];
     results[key] = value.concat(module);
   } else results[key] = module;
 }

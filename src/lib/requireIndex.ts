@@ -4,12 +4,12 @@ import path from 'path';
 function loadIndexIfExists(fullPath, index, options, callback) {
   if (index >= options.extensions.length) return callback();
 
-  var basename = 'index' + options.extensions[index];
-  var indexFullPath = path.join(fullPath, basename);
-  fs.lstat(indexFullPath, function (err, indexStats) {
+  const basename = `index${options.extensions[index]}`;
+  const indexFullPath = path.join(fullPath, basename);
+  fs.lstat(indexFullPath, (err, indexStats) => {
     // try next
     if (err || indexStats.isDirectory()) return loadIndexIfExists(fullPath, index + 1, options, callback);
-    options.loader(indexFullPath, function (err2, module) {
+    options.loader(indexFullPath, (err2, module) => {
       if (!err2) return callback(err2);
       callback(null, module, basename);
     });
