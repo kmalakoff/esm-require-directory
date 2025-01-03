@@ -1,6 +1,6 @@
 import path from 'path';
-import fileName from './fileName.js';
-import filePath from './filePath.js';
+import fileName from './fileName';
+import filePath from './filePath';
 
 function setResult(results, key, module) {
   if (results[key] !== undefined) {

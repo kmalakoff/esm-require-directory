@@ -1,8 +1,8 @@
 import path from 'path';
 import Iterator from 'fs-iterator';
 
-import addResult from './addResult.js';
-import requireIndex from './requireIndex.js';
+import addResult from './addResult';
+import requireIndex from './requireIndex';
 
 export default function walk(directory, options, callback) {
   const results = options.paths || options.filename ? {} : [];
