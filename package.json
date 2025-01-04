@@ -45,7 +45,7 @@
     "version": "tsds version"
   },
   "dependencies": {
-    "fs-iterator": "^5.2.6"
+    "fs-iterator": "^5.2.7"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
