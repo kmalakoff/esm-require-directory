@@ -1,11 +1,11 @@
-import worker from './worker.js';
+import worker from './worker';
 
 // @ts-ignore
 import loader from './cjs/requireFile.cjs';
 const settings = { extensions: ['.js', '.cjs'], loader };
 
-import type { RequireCallback, RequireOptions, RequireResult } from './types.js';
-export * from './types.js';
+import type { RequireCallback, RequireOptions, RequireResult } from './types';
+export type * from './types';
 export default function requireDirectory(directory: string, options?: RequireOptions | RequireCallback, callback?: RequireCallback): undefined | Promise<RequireResult> {
   if (typeof options === 'function') {
     callback = options;
@@ -13,11 +13,6 @@ export default function requireDirectory(directory: string, options?: RequireOpt
   }
   options = options || {};
 
-  // choose between promise and callback API
   if (typeof callback === 'function') return worker(directory, options, settings, callback) as undefined;
-  return new Promise((resolve, reject) => {
-    worker(directory, options, settings, (err, results) => {
-      err ? reject(err) : resolve(results);
-    });
-  });
+  return new Promise((resolve, reject) => worker(directory, options, settings, (err, results) => (err ? reject(err) : resolve(results))));
 }
