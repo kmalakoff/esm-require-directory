@@ -24,12 +24,12 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.esm.mjs",
-      "require": "./dist/cjs/index.cjs.js",
+      "require": "./dist/cjs/index.cjs.cjs",
       "types": "./dist/types/index.esm.d.ts"
     },
     "./*": "./*"
   },
-  "main": "dist/cjs/index.cjs.js",
+  "main": "dist/cjs/index.cjs.cjs",
   "module": "dist/esm/index.esm.mjs",
   "types": "dist/types/index.esm.d.ts",
   "files": [
@@ -38,22 +38,21 @@
   "scripts": {
     "build": "tsds build",
     "deploy": "tsds deploy",
+    "docs": "tsds docs",
     "format": "biome check --write --unsafe src/ test/",
     "test": "tsds test:node --no-timeouts",
     "test:engines": "nvu engines tsds test:node --no-timeouts",
     "version": "tsds version"
   },
   "dependencies": {
-    "fs-iterator": "^5.2.0"
+    "fs-iterator": "^5.2.1"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.10.2",
-    "depcheck": "^1.4.7",
+    "@types/node": "^22.10.5",
     "lodash.size": "^4.2.0",
-    "pinkie-promise": "^2.0.1",
-    "tsds-mocha": "^1.8.1"
+    "pinkie-promise": "^2.0.1"
   },
   "engines": {
     "node": ">=0.8"
