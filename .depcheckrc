@@ -1,1 +1,1 @@
-ignores: ["esm-require-directory", "@types/*", "@biomejs/*"]
+ignores: ["@types/*", "esm-require-directory", "@biomejs/*"]
