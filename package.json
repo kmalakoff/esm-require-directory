@@ -22,13 +22,14 @@
   "author": "Kevin Malakoff",
   "type": "module",
   "exports": {
-    "import": "./dist/esm/index.esm.mjs",
-    "require": "./dist/cjs/index.cjs.cjs",
-    "types": "./dist/types/index.esm.d.ts"
+    ".": {
+      "import": "./dist/esm/index-esm.mjs",
+      "require": "./dist/cjs/index-cjs.cjs"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "dist/cjs/index.cjs.cjs",
-  "module": "dist/esm/index.esm.mjs",
-  "types": "dist/types/index.esm.d.ts",
+  "main": "dist/cjs/index-cjs.cjs",
+  "types": "dist/cjs/index-cjs.d.cts",
   "files": [
     "dist"
   ],
@@ -52,6 +53,6 @@
     "node": ">=0.8"
   },
   "tsds": {
-    "source": "src/index.esm.ts"
+    "source": "src/index-esm.ts"
   }
 }
