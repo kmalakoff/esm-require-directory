@@ -23,12 +23,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/esm/index-esm.mjs",
-      "require": "./dist/cjs/index-cjs.cjs"
+      "import": "./dist/esm/index-esm.js",
+      "require": "./dist/cjs/index-cjs.js"
     },
     "./package.json": "./package.json"
   },
-  "main": "dist/cjs/index-cjs.cjs",
+  "main": "dist/cjs/index-cjs.js",
   "types": "dist/cjs/index-cjs.d.cts",
   "files": [
     "dist"
@@ -41,7 +41,7 @@
     "version": "tsds version"
   },
   "dependencies": {
-    "fs-iterator": "^5.2.27"
+    "fs-iterator": "^5.3.7"
   },
   "devDependencies": {
     "@types/mocha": "*",
