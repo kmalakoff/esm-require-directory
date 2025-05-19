@@ -1,4 +1,4 @@
-import walk from './lib/walk';
+import walk from './lib/walk.js';
 
 export default function worker(directory, options_, settings, callback) {
   const options = { ...options_, ...settings };
