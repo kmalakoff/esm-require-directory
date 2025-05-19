@@ -1,11 +1,11 @@
-import worker from './worker';
+import worker from './worker.js';
 
 // @ts-ignore
-import loader from './esm/importFile';
+import loader from './esm/importFile.js';
 const settings = { extensions: ['.mjs'], loader };
 
-import type { RequireCallback, RequireOptions, RequireResult } from './types';
-export type * from './types';
+import type { RequireCallback, RequireOptions, RequireResult } from './types.js';
+export type * from './types.js';
 export default function importDirectory(directory: string, options?: RequireOptions | RequireCallback, callback?: RequireCallback): undefined | Promise<RequireResult> {
   if (typeof options === 'function') {
     callback = options;
