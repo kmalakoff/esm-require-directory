@@ -1,11 +1,16 @@
 import worker from './worker.js';
 
+import type { RequireCallback, RequireOptions, RequireResult, RequireSettings } from './types.js';
+export type * from './types.js';
+
 // @ts-ignore
 import loader from './cjs/requireFile.cjs';
-const settings = { extensions: ['.js', '.cjs'], loader };
+const settings: RequireSettings = { extensions: ['.js', '.cjs'], loader };
 
-import type { RequireCallback, RequireOptions, RequireResult } from './types.js';
-export type * from './types.js';
+export default function requireDirectory(directory: string, callback: RequireCallback): undefined;
+export default function requireDirectory(directory: string, options: RequireOptions, callback: RequireCallback): undefined;
+export default function requireDirectory(directory: string): Promise<RequireResult>;
+export default function requireDirectory(directory: string, options: RequireOptions): Promise<RequireResult>;
 export default function requireDirectory(directory: string, options?: RequireOptions | RequireCallback, callback?: RequireCallback): undefined | Promise<RequireResult> {
   if (typeof options === 'function') {
     callback = options;
