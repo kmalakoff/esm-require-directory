@@ -7,3 +7,9 @@ export interface RequireOptions {
   extensions?: string[];
 }
 export type RequireCallback = (err?: Error, resolved?: RequireResult) => void;
+
+export type SettingsCallback = (err?: Error, resolved?: unknown) => void;
+export interface RequireSettings {
+  extensions: string[];
+  loader: (fullPath: string, callback: SettingsCallback) => void;
+}
