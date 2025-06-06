@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
+import type { Module, RequireOptions } from '../types.js';
+export type Callback = (error?: Error, module?: Module, basename?: string) => undefined;
+
 function loadIndexIfExists(fullPath, index, options, callback) {
   if (index >= options.extensions.length) return callback();
 
@@ -16,6 +19,6 @@ function loadIndexIfExists(fullPath, index, options, callback) {
   });
 }
 
-export default function requireIndex(fullPath, options, callback) {
+export default function requireIndex(fullPath: string, options: RequireOptions, callback: Callback): undefined {
   loadIndexIfExists(fullPath, 0, options, callback);
 }
