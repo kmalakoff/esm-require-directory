@@ -4,7 +4,7 @@ import type { RequireCallback, RequireOptions, RequireResult, RequireSettings } 
 export type * from './types.js';
 
 // @ts-ignore
-import loader from './cjs/requireFile.cjs';
+import loader from './cjs/requireFile.js';
 const settings: RequireSettings = { extensions: ['.js', '.cjs'], loader };
 
 export default function requireDirectory(directory: string, callback: RequireCallback): undefined;

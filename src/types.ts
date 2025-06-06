@@ -1,5 +1,5 @@
 export interface Module {
-  default: unknown;
+  default?: unknown;
 }
 
 export interface RequireEntry {
@@ -19,6 +19,8 @@ export type RequireCallback = (err?: Error, resolved?: RequireResult) => void;
 
 export type SettingsCallback = (err?: Error, resolved?: unknown) => void;
 export interface RequireSettings {
-  extensions: string[];
+  extensions?: string[];
   loader: (fullPath: string, callback: SettingsCallback) => void;
 }
+
+export interface RequireOptionsInternal extends RequireOptions, RequireSettings {}
