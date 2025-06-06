@@ -1,3 +1,12 @@
+export interface Module {
+  default: unknown;
+}
+
+export interface RequireEntry {
+  basename: string;
+  path: string;
+}
+
 export type RequireResult = object | unknown[];
 export interface RequireOptions {
   default?: boolean;
