@@ -1,10 +1,12 @@
 import path from 'path';
 import Iterator, { type Entry } from 'fs-iterator';
 
-import addResult from './addResult.js';
-import requireIndex from './requireIndex.js';
+import type { RequireCallback, RequireOptionsInternal } from '../types.js';
 
-export default function walk(directory, options, callback) {
+import addResult from './addResult.js';
+import requireIndex, { type Callback } from './requireIndex.js';
+
+export default function walk(directory: string, options: RequireOptionsInternal, callback: RequireCallback): void {
   const results = options.paths || options.filename ? {} : [];
 
   let iterator = new Iterator(directory, {
@@ -23,11 +25,12 @@ export default function walk(directory, options, callback) {
           return;
         }
 
-        requireIndex(entry.fullPath, options, (err, module, indexBasename) => {
-          if (err) return callback(err);
+        const cb = (error?: Error, module?: unknown, indexBasename?: string) => {
+          if (error) return callback(error);
           if (module) addResult(results, { basename: indexBasename, path: path.join(entry.path, indexBasename) }, options, module);
           callback();
-        });
+        };
+        requireIndex(entry.fullPath, options, cb as Callback);
       } else {
         if (!~options.extensions.indexOf(path.extname(entry.basename))) {
           callback(); // not a supported index
