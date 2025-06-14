@@ -41,7 +41,7 @@
     "version": "tsds version"
   },
   "dependencies": {
-    "fs-iterator": "^5.3.12"
+    "fs-iterator": "^5.3.13"
   },
   "devDependencies": {
     "@types/mocha": "*",
