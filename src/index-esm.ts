@@ -1,10 +1,11 @@
+import type { RequireCallback, RequireOptions, RequireResult, RequireSettings } from './types.js';
 import worker from './worker.js';
 
-import type { RequireCallback, RequireOptions, RequireResult, RequireSettings } from './types.js';
 export type * from './types.js';
 
 // @ts-ignore
 import loader from './esm/importFile.js';
+
 const settings: RequireSettings = { extensions: ['.mjs'], loader };
 
 export default function requireDirectory(directory: string, callback: RequireCallback): undefined;
