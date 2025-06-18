@@ -1,8 +1,7 @@
 import path from 'path';
+import type { Module, RequireEntry, RequireOptions, RequireResult } from '../types.js';
 import fileName from './fileName.js';
 import filePath from './filePath.js';
-
-import type { Module, RequireEntry, RequireOptions, RequireResult } from '../types.js';
 
 function setResult(results, key, module) {
   if (results[key] !== undefined) {
