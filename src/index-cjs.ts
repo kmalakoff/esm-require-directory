@@ -3,7 +3,6 @@ import worker from './worker.js';
 
 export type * from './types.js';
 
-// @ts-ignore
 import loader from './cjs/requireFile.js';
 
 const settings: RequireSettings = { extensions: ['.js', '.cjs'], loader };
