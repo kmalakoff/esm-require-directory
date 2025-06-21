@@ -1,7 +1,7 @@
 import path from 'path';
-import type { Module, RequireEntry, RequireOptions, RequireResult } from '../types.js';
-import fileName from './fileName.js';
-import filePath from './filePath.js';
+import type { Module, RequireEntry, RequireOptions, RequireResult } from '../types.ts';
+import fileName from './fileName.ts';
+import filePath from './filePath.ts';
 
 function setResult(results, key, module) {
   if (results[key] !== undefined) {

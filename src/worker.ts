@@ -1,6 +1,6 @@
-import walk from './lib/walk.js';
+import walk from './lib/walk.ts';
 
-import type { RequireCallback, RequireOptions, RequireSettings } from './types.js';
+import type { RequireCallback, RequireOptions, RequireSettings } from './types.ts';
 
 export default function worker(directory: string, options_: RequireOptions, settings: RequireSettings, callback: RequireCallback): undefined {
   const options = { ...options_, ...settings };
