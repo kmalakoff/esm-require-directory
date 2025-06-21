@@ -1,10 +1,10 @@
 import Iterator, { type Entry } from 'fs-iterator';
 import path from 'path';
 
-import type { RequireCallback, RequireOptionsInternal } from '../types.js';
+import type { RequireCallback, RequireOptionsInternal } from '../types.ts';
 
-import addResult from './addResult.js';
-import requireIndex, { type Callback } from './requireIndex.js';
+import addResult from './addResult.ts';
+import requireIndex, { type Callback } from './requireIndex.ts';
 
 export default function walk(directory: string, options: RequireOptionsInternal, callback: RequireCallback): void {
   const results = options.paths || options.filename ? {} : [];
