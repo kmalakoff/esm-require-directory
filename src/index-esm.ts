@@ -1,9 +1,9 @@
-import type { RequireCallback, RequireOptions, RequireResult, RequireSettings } from './types.js';
-import worker from './worker.js';
+import type { RequireCallback, RequireOptions, RequireResult, RequireSettings } from './types.ts';
+import worker from './worker.ts';
 
-export type * from './types.js';
+export type * from './types.ts';
 
-import loader from './esm/importFile.js';
+import loader from './esm/importFile.ts';
 
 const settings: RequireSettings = { extensions: ['.mjs'], loader };
 

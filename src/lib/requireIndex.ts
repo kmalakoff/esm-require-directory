@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import type { Module, RequireOptions } from '../types.js';
+import type { Module, RequireOptions } from '../types.ts';
 export type Callback = (error?: Error, module?: Module, basename?: string) => undefined;
 
 function loadIndexIfExists(fullPath, index, options, callback) {
