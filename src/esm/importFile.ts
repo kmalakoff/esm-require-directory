@@ -1,4 +1,4 @@
-import type { SettingsCallback } from '../types.js';
+import type { SettingsCallback } from '../types.ts';
 
 export default function importFile(fullPath: string, callback: SettingsCallback): undefined {
   import(`file://${fullPath}`)
