@@ -1,5 +1,4 @@
 import assert from 'assert';
-// @ts-ignore
 import requireDirectory from 'esm-require-directory';
 import path from 'path';
 import Pinkie from 'pinkie-promise';

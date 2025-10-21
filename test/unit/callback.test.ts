@@ -1,5 +1,4 @@
 import assert from 'assert';
-// @ts-ignore
 import importDirectory from 'esm-require-directory';
 import path from 'path';
 import url from 'url';
