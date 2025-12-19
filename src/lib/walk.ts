@@ -12,11 +12,8 @@ export default function walk(directory: string, options: RequireOptionsInternal,
   let iterator = new Iterator(directory, {
     depth: options.recursive ? Infinity : 0,
     alwaysStat: true,
-    filter: (entry, callback): undefined => {
-      if (entry.path === '') {
-        callback();
-        return;
-      }
+    filter: (entry, callback): void => {
+      if (entry.path === '') return callback();
 
       // check for index file one level under the directory
       if (entry.stats.isDirectory()) {
@@ -46,7 +43,7 @@ export default function walk(directory: string, options: RequireOptionsInternal,
     callbacks: true,
   });
   iterator.forEach(
-    (_entry: Entry): undefined => {},
+    (_entry: Entry): void => {},
     { concurrency: 1 },
     (err) => {
       iterator.destroy();
