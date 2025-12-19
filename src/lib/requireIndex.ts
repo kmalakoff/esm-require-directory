@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import type { Module, RequireOptions } from '../types.ts';
-export type Callback = (error?: Error, module?: Module, basename?: string) => undefined;
+export type Callback = (error?: Error, module?: Module, basename?: string) => void;
 
 function loadIndexIfExists(fullPath, index, options, callback) {
   if (index >= options.extensions.length) return callback();
@@ -19,6 +19,6 @@ function loadIndexIfExists(fullPath, index, options, callback) {
   });
 }
 
-export default function requireIndex(fullPath: string, options: RequireOptions, callback: Callback): undefined {
+export default function requireIndex(fullPath: string, options: RequireOptions, callback: Callback): void {
   loadIndexIfExists(fullPath, 0, options, callback);
 }

@@ -2,7 +2,7 @@ import walk from './lib/walk.ts';
 
 import type { RequireCallback, RequireOptions, RequireSettings } from './types.ts';
 
-export default function worker(directory: string, options_: RequireOptions, settings: RequireSettings, callback: RequireCallback): undefined {
+export default function worker(directory: string, options_: RequireOptions, settings: RequireSettings, callback: RequireCallback): void {
   const options = { ...options_, ...settings };
   options.default = options_.default === undefined ? true : options_.default;
   for (let i = 0; i < options.extensions.length; i++) {
