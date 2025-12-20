@@ -12,12 +12,9 @@ export default function requireDirectory(directory: string, options: RequireOpti
 export default function requireDirectory(directory: string): Promise<RequireResult>;
 export default function requireDirectory(directory: string, options: RequireOptions): Promise<RequireResult>;
 export default function requireDirectory(directory: string, options?: RequireOptions | RequireCallback, callback?: RequireCallback): void | Promise<RequireResult> {
-  if (typeof options === 'function') {
-    callback = options;
-    options = {};
-  }
-  options = options || {};
+  callback = typeof options === 'function' ? options : callback;
+  options = typeof options === 'function' ? {} : ((options || {}) as RequireOptions);
 
   if (typeof callback === 'function') return worker(directory, options, settings, callback);
-  return new Promise((resolve, reject) => worker(directory, options as RequireOptions, settings, (err, results) => (err ? reject(err) : resolve(results))));
+  return new Promise((resolve, reject) => worker(directory, options, settings, (err, results) => (err ? reject(err) : resolve(results))));
 }
