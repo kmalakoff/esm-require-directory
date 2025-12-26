@@ -1,6 +1,6 @@
 {
   "name": "esm-require-directory",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "require a directory of modules using es6 modules require",
   "keywords": [
     "esm",
