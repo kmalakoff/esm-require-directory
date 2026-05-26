@@ -13,7 +13,7 @@ export default function walk(directory: string, options: RequireOptionsInternal,
   const iterator = new Iterator(directory, {
     depth: options.recursive ? Infinity : 0,
     alwaysStat: true,
-    filter: (entry: Entry, cb: (err?: Error) => void): void => {
+    filter: (entry: Entry, cb: (err?: Error | null, value?: boolean) => void): void => {
       if (entry.path === '') return cb();
 
       // check for index file one level under the directory
@@ -24,7 +24,7 @@ export default function walk(directory: string, options: RequireOptionsInternal,
           return;
         }
 
-        const innerCb = (error?: Error, module?: unknown, indexBasename?: string) => {
+        const innerCb = (error?: Error | null, module?: unknown, indexBasename?: string) => {
           if (error) return cb(error);
           if (module) addResult(results, { basename: indexBasename as string, path: path.join(entry.path, indexBasename as string) }, options, module);
           cb();
@@ -35,7 +35,7 @@ export default function walk(directory: string, options: RequireOptionsInternal,
           cb(); // not a supported index
           return;
         }
-        options.loader(entry.fullPath, (err: Error | undefined, module?: unknown) => {
+        options.loader(entry.fullPath, (err?: Error | null, module?: unknown) => {
           if (err) return cb(err);
           if (module) addResult(results, entry, options, module);
           cb();

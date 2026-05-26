@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 
 import type { Module, RequireOptionsInternal } from '../types.ts';
-export type Callback = (error?: Error, module?: Module, basename?: string) => void;
+export type Callback = (error?: Error | null, module?: Module, basename?: string) => void;
 
 function loadIndexIfExists(fullPath: string, index: number, options: RequireOptionsInternal, callback: Callback): void {
   if (index >= (options.extensions ?? []).length) return callback();
@@ -12,7 +12,7 @@ function loadIndexIfExists(fullPath: string, index: number, options: RequireOpti
   fs.lstat(indexFullPath, (err, indexStats) => {
     // try next
     if (err || indexStats.isDirectory()) return loadIndexIfExists(fullPath, index + 1, options, callback);
-    options.loader(indexFullPath, (err2?: Error, module?: unknown) => {
+    options.loader(indexFullPath, (err2?: Error | null, module?: unknown) => {
       if (err2) return callback(err2);
       callback(undefined, module as Module, basename);
     });
