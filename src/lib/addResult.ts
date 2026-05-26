@@ -3,13 +3,14 @@ import type { Module, RequireEntry, RequireOptions, RequireResult } from '../typ
 import fileName from './fileName.ts';
 import filePath from './filePath.ts';
 
-const isArray = Array.isArray || ((x) => Object.prototype.toString.call(x) === '[object Array]');
+const isArray = Array.isArray || ((x: unknown) => Object.prototype.toString.call(x) === '[object Array]');
 
-function setResult(results, key, module) {
-  if (results[key] !== undefined) {
-    const value = isArray(results[key]) ? results[key] : [results[key]];
-    results[key] = value.concat(module);
-  } else results[key] = module;
+function setResult(results: RequireResult, key: string, module: unknown) {
+  const dict = results as unknown as Record<string, unknown>;
+  if (dict[key] !== undefined) {
+    const value = isArray(dict[key]) ? dict[key] : [dict[key]];
+    dict[key] = (value as unknown[]).concat(module);
+  } else dict[key] = module;
 }
 
 export default function addResult(results: RequireResult, entry: RequireEntry, options: RequireOptions, module: Module) {

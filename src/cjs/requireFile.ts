@@ -5,8 +5,8 @@ export type Callback = (error?: Error, module?: unknown) => void;
 
 export default function requireFile(fullPath: string, callback: Callback): void {
   try {
-    callback(null, _require(fullPath));
+    callback(undefined, _require(fullPath));
   } catch (err) {
-    callback(err);
+    callback(err as Error | undefined);
   }
 }
