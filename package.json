@@ -45,6 +45,7 @@
     "fs-iterator": "^7.0.0"
   },
   "devDependencies": {
+    "@types/lodash.size": "^4.2.9",
     "@types/mocha": "*",
     "@types/node": "*",
     "lodash.size": "^4.2.0",

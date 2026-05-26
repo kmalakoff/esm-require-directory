@@ -1,3 +1,4 @@
+import type fs from 'fs';
 import Iterator, { type Entry } from 'fs-iterator';
 import path from 'path';
 
@@ -7,36 +8,37 @@ import addResult from './addResult.ts';
 import requireIndex, { type Callback } from './requireIndex.ts';
 
 export default function walk(directory: string, options: RequireOptionsInternal, callback: RequireCallback): void {
-  const results = options.paths || options.filename ? {} : [];
+  const results = options.paths || options.filename ? ({} as Record<string, unknown>) : ([] as unknown[]);
 
-  let iterator = new Iterator(directory, {
+  const iterator = new Iterator(directory, {
     depth: options.recursive ? Infinity : 0,
     alwaysStat: true,
-    filter: (entry, callback): void => {
-      if (entry.path === '') return callback();
+    filter: (entry: Entry, cb: (err?: Error) => void): void => {
+      if (entry.path === '') return cb();
 
       // check for index file one level under the directory
-      if (entry.stats.isDirectory()) {
+      const stats = entry.stats as fs.Stats | undefined;
+      if (stats?.isDirectory()) {
         if (options.recursive) {
-          callback(); // will pick up index in traverse
+          cb(); // will pick up index in traverse
           return;
         }
 
-        const cb = (error?: Error, module?: unknown, indexBasename?: string) => {
-          if (error) return callback(error);
-          if (module) addResult(results, { basename: indexBasename, path: path.join(entry.path, indexBasename) }, options, module);
-          callback();
+        const innerCb = (error?: Error, module?: unknown, indexBasename?: string) => {
+          if (error) return cb(error);
+          if (module) addResult(results, { basename: indexBasename as string, path: path.join(entry.path, indexBasename as string) }, options, module);
+          cb();
         };
-        requireIndex(entry.fullPath, options, cb as Callback);
+        requireIndex(entry.fullPath, options, innerCb as Callback);
       } else {
-        if (!~options.extensions.indexOf(path.extname(entry.basename))) {
-          callback(); // not a supported index
+        if (!~((options.extensions ?? []) as string[]).indexOf(path.extname(entry.basename))) {
+          cb(); // not a supported index
           return;
         }
-        options.loader(entry.fullPath, (err, module) => {
-          if (err) return callback(err);
+        options.loader(entry.fullPath, (err: Error | undefined, module?: unknown) => {
+          if (err) return cb(err);
           if (module) addResult(results, entry, options, module);
-          callback();
+          cb();
         });
       }
     },
@@ -47,8 +49,7 @@ export default function walk(directory: string, options: RequireOptionsInternal,
     { concurrency: 1 },
     (err) => {
       iterator.destroy();
-      iterator = null;
-      err ? callback(err) : callback(null, results);
+      err ? callback(err) : callback(undefined, results);
     }
   );
 }

@@ -16,5 +16,5 @@ export default function requireDirectory(directory: string, options?: RequireOpt
   options = typeof options === 'function' ? {} : ((options || {}) as RequireOptions);
 
   if (typeof callback === 'function') return worker(directory, options, settings, callback);
-  return new Promise((resolve, reject) => worker(directory, options, settings, (err, results) => (err ? reject(err) : resolve(results))));
+  return new Promise((resolve, reject) => worker(directory, options, settings, (err, results) => (err ? reject(err) : resolve(results as RequireResult))));
 }
