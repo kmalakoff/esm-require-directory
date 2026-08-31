@@ -57,6 +57,12 @@
   "engines": {
     "node": ">=0.8"
   },
+  "allowScripts": {
+    "node-filename-to-dist-paths": true,
+    "node-semvers": true,
+    "node-version-use": true,
+    "thread-sleep-compat": true
+  },
   "tsds": {
     "source": "src/index-esm.ts"
   }
