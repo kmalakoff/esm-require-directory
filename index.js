@@ -1,4 +1,4 @@
-var walk = require('./lib/walk.cjs');
+var walk = require('./lib/walk');
 var requireFile = require('./lib/requireFile');
 
 var EXTENSIONS = ['.js', '.cjs'];
